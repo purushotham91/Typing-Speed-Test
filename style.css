@@ -1,0 +1,24 @@
+body {
+  background-color: #b0a1ba;
+}
+
+.text {
+  font-size: 35px;
+}
+
+.word,
+.space {
+  display: inline;
+}
+
+.letter {
+  color: #fff;
+}
+
+.letterWrong {
+  color: #e4572e;
+}
+
+.letterCorrect {
+  color: #bff0d4;
+}
