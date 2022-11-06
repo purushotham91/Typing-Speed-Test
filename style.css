@@ -1,9 +1,10 @@
 body {
-  background-color: #b0a1ba;
+  background-color: #4f4d51;
 }
 
 .text {
-  font-size: 35px;
+  font-size: 25px;
+  text-overflow: "-";
 }
 
 .word,
@@ -15,10 +16,23 @@ body {
   color: #fff;
 }
 
-.letterWrong {
-  color: #e4572e;
-}
-
 .letterCorrect {
   color: #bff0d4;
+}
+
+.letterWrong {
+  color: #e4572e !important;
+}
+
+.container {
+  font-family: arial;
+  font-size: 2em;
+  padding: 200px;
+  text-align: center;
+}
+
+.score {
+  font-family: arial;
+  color: white;
+  align-items: center;
 }
