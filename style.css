@@ -1,5 +1,5 @@
 body {
-  background-color: #4f4d51;
+  background-color: #333438;
 }
 
 .text {
@@ -8,26 +8,28 @@ body {
 }
 
 .word,
+
 .space {
   display: inline;
 }
 
 .letter {
-  color: #fff;
+  color: #65666a;
 }
 
 .letterCorrect {
-  color: #bff0d4;
+  color: #ffffff;
 }
 
 .letterWrong {
   color: #e4572e !important;
 }
 
+
 .container {
-  font-family: arial;
-  font-size: 2em;
-  padding: 200px;
+  font-family: Arial;
+  font-size: 1.25em;
+  padding: 260px;
   text-align: center;
 }
 
@@ -36,3 +38,37 @@ body {
   color: white;
   align-items: center;
 }
+
+.button {
+  background-color: transparent;
+  border: 2px solid orange;
+  color: white;
+  border-radius: 20px;
+  padding: 20px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  font-family: arial;
+}
+
+.button:hover {
+  transition: 3s;
+  background-color: rgb(255, 195, 85);
+  opacity: 0.5;
+  border-color: rgb(172, 112, 0);
+}
+
+.countdown {
+  color: white;
+  font-family: arial;
+  font-size: 100px;
+  opacity: 100%;
+} 
+
+.score {
+  font-size: 100px;
+  font-family: Arial;
+  color: orange;
+  text-align: center;
+  }

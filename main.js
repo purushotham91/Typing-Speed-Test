@@ -41,7 +41,7 @@ function convertHTML(a, typeCount, wrongIndex) {
     code += '</div><div class="space">&ensp;</div>' + "\n";
     letterCount++;
     count++;
-    if (count % 9 == 0) {
+    if (count % 8 == 0) {
       code += "<br>";
     }
   }
@@ -124,3 +124,4 @@ async function init() {
 
 let startButton = document.getElementById("startButton");
 startButton.addEventListener("click", init);
+
