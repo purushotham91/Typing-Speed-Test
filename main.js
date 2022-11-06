@@ -20,6 +20,7 @@ function convertHTML(a, typeCount, wrongIndex) {
   var code = "";
   while (count <= 50) {
     let num = 0;
+
     if (count == 50) {
       code += "<br>";
       code += `<div class="word" >` + "\n";
@@ -35,10 +36,26 @@ function convertHTML(a, typeCount, wrongIndex) {
         a[count][num] +
         "</span>" +
         "\n";
+      if (letterCount == typeCount) {
+        code += '<span class="blinker"></span>';
+      }
       num++;
       letterCount++;
     }
-    code += '</div><div class="space">&ensp;</div>' + "\n";
+    if (wrongIndex.includes(letterCount)) {
+      code +=
+        '</div><div class="space"><u><font color="red">&ensp;</font></u></div>' +
+        "\n";
+    } else if (letterCount <= typeCount) {
+      code +=
+        '</div><div class="space spaceRight"><u><font color="white">&ensp;</font></u></div>' +
+        "\n";
+    } else {
+      code += '</div><div class="space spaceRight">&ensp;</div>' + "\n";
+    }
+    if (letterCount == typeCount) {
+      code += '<span class="blinker"></span>';
+    }
     letterCount++;
     count++;
     if (count % 8 == 0) {
@@ -64,28 +81,9 @@ let wordCount = 0;
 let trueWordCount = 0;
 let newWord = true;
 let timer;
+let startPressed = false;
 
 document.addEventListener("keydown", (e) => {
-  if (wordsString[typeCount] == e.key && wordsString[typeCount] == " ") {
-    wordCount++;
-  }
-  if (wordsString[typeCount] == " ") {
-    trueWordCount++;
-  }
-
-  if (e.key == " ") {
-    newWord = true;
-  }
-  if (newWord == true && e.key != wordsString[typeCount] && wordCount > 0) {
-    wordCount--;
-    newWord = false;
-  }
-  if (wordsString[typeCount] != e.key) {
-    wrongIndex.push(typeCount);
-  }
-
-  renderWords(convertHTML(wordsList, typeCount, wrongIndex));
-  typeCount++;
   if (trueWordCount == 50) {
     clearInterval(timer);
     renderWords("");
@@ -97,6 +95,27 @@ document.addEventListener("keydown", (e) => {
     scoreEl.innerHTML = wps.toString() + " WPM";
     console.log(wps);
     trueWordCount++;
+  } else if (trueWordCount < 50 && startPressed) {
+    if (wordsString[typeCount] == e.key && wordsString[typeCount] == " ") {
+      wordCount++;
+    }
+    if (wordsString[typeCount] == " ") {
+      trueWordCount++;
+    }
+
+    if (e.key == " ") {
+      newWord = true;
+    }
+    if (newWord == true && e.key != wordsString[typeCount] && wordCount > 0) {
+      wordCount--;
+      newWord = false;
+    }
+    if (wordsString[typeCount] != e.key) {
+      wrongIndex.push(typeCount);
+    }
+
+    renderWords(convertHTML(wordsList, typeCount, wrongIndex));
+    typeCount++;
   }
   // console.log(time);
   // console.log(trueWordCount);
@@ -123,5 +142,7 @@ async function init() {
 }
 
 let startButton = document.getElementById("startButton");
-startButton.addEventListener("click", init);
-
+startButton.addEventListener("click", () => {
+  init();
+  startPressed = true;
+});

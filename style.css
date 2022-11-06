@@ -8,7 +8,6 @@ body {
 }
 
 .word,
-
 .space {
   display: inline;
 }
@@ -24,7 +23,6 @@ body {
 .letterWrong {
   color: #e4572e !important;
 }
-
 
 .container {
   font-family: Arial;
@@ -64,11 +62,34 @@ body {
   font-family: arial;
   font-size: 100px;
   opacity: 100%;
-} 
+}
 
 .score {
   font-size: 100px;
   font-family: Arial;
   color: orange;
   text-align: center;
+}
+
+.blinker {
+  animation-name: blinker;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1, 0, 0, 1);
+  animation-duration: 1s;
+  display: inline-block;
+  width: 2px;
+  height: 1.15em;
+  /* margin-left: 10px; */
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(white, 0.3);
+  background: #ffffff;
+}
+
+@keyframes blinker {
+  from {
+    opacity: 1;
   }
+  to {
+    opacity: 0;
+  }
+}
