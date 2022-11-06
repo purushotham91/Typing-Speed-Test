@@ -42,17 +42,8 @@ function convertHTML(a, typeCount, wrongIndex) {
       num++;
       letterCount++;
     }
-    if (wrongIndex.includes(letterCount)) {
-      code +=
-        '</div><div class="space"><u><font color="red">&ensp;</font></u></div>' +
-        "\n";
-    } else if (letterCount <= typeCount) {
-      code +=
-        '</div><div class="space spaceRight"><u><font color="white">&ensp;</font></u></div>' +
-        "\n";
-    } else {
-      code += '</div><div class="space spaceRight">&ensp;</div>' + "\n";
-    }
+
+    code += '</div><div class="space spaceRight">&ensp;</div>' + "\n";
     if (letterCount == typeCount) {
       code += '<span class="blinker"></span>';
     }
